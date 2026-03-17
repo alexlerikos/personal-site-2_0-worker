@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     // `make` from any site content root directory will keep sites list in sync with public/
     // DO NOT touch this line vvv
-    const sites = ["my-personal-site.me", "my-second-personal-site.me"];
+    const sites = ["alexlerikos.me"];
     // DO NOT touch this line ^^^
     const url = new URL(request.url);
     var domain = url.hostname;
