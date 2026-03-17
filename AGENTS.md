@@ -1,10 +1,9 @@
 # Agent Guide
 
-Cloudflare Worker project backing two domains from one repo.
+Cloudflare Worker project backing one domain.
 
 ## domains
-* my-second-personal-site.me — professional identity, CV, materials for hiring teams
-* my-personal-site.me — writing, tech/process articles, project links
+* alexlerikos.me — writing, tech/process articles, project links
 
 ## philosophy
 * content: targeted, purposeful
@@ -17,10 +16,8 @@ Cloudflare Worker project backing two domains from one repo.
 ## worker technical setup
 * Worker config: wrangler.jsonc
 * public/ — top-level content root
-  * public/my-second-personal-site.me/ — my-second-personal-site.me content root
-    * public/my-second-personal-site.me/style.css — canonical palette and aesthetic reference for this site
-  * public/my-personal-site.me/ — my-personal-site.me content root
-    * public/my-personal-site.me/style.css — canonical palette and aesthetic reference for this site
+  * public/alexlerikos.me/ — alexlerikos.me content root
+    * public/alexlerikos.me/style.css — canonical palette and aesthetic reference for this site
 * HTTP request handling: src/index.js
   * routes by domain: hostname → public/{domain}/; unknown domain → 503 (no fallback)
   * `const sites = [...]` in src/index.js must match subdirectory names under public/ — hardcoded by necessity since the Worker runtime has no filesystem access to discover them dynamically
@@ -34,7 +31,6 @@ Cloudflare Worker project backing two domains from one repo.
 * dev articles are authored in .md; HTML is generated from them (see source files table)
 * nav: aria-current="page" on the active nav destination; omitted on article pages (articles are not nav items)
 * topic tags (.tag class) are purely decorative — no hover behavior, no filtering
-* cross-site links: .dev→.me use "at my-second-personal-site.me ↗" in link text; .me→.dev use "at my-personal-site.me ↗"
 
 ---
 
@@ -43,8 +39,7 @@ Cloudflare Worker project backing two domains from one repo.
 HTML files that have a paired `.md` source are generated from that `.md` via pandoc. The expected workflow is to `cd` into a site's content root and run `make` targets from there:
 
 ```sh
-cd public/my-personal-site.me && make public
-cd public/my-second-personal-site.me && make public
+cd public/alexlerikos.me && make public
 ```
 
 Infra targets (`serve`, `site-tool`) are in `maint/Makefile` and are run from `maint/`:
@@ -67,7 +62,7 @@ Site Makefiles define only what's site-specific on top of these shared rules.
 | `public` | build all HTML + sync SVG colors + favicon (default target) | each site's `Makefile` |
 | `sync-svg-colors` | sync CSS colors into favicon.svg (UTD checked against style.css) | `maint/favicon.mk` |
 | `favicon` | regenerate favicon.ico from favicon.svg (requires ImageMagick; macOS uses qlmanage, Windows/Linux use ImageMagick directly — verify output) | `maint/favicon.mk` |
-| `new-article` | scaffold a new article at `writing/$SLUG/index.md` from template (requires `SLUG=name`) | `public/my-personal-site.me/Makefile` |
+| `new-article` | scaffold a new article at `writing/$SLUG/index.md` from template (requires `SLUG=name`) | `public/alexlerikos.me/Makefile` |
 | `serve` | start wrangler dev on 0.0.0.0 (wrangler prints LAN IP in its startup banner) | `maint/Makefile` |
 
 Use `make -B [target]` to force a rebuild when only a filter changed — those are not in Make's dependency graph.
@@ -94,11 +89,9 @@ The base rule in `common.mk` handles all `.md` → `.html` conversions. Each `.m
 ### source files (do not hand-edit the HTML they generate)
 | source | generates | template | filters |
 |---|---|---|---|
-| `public/my-second-personal-site.me/index.md` | `index.html` | `index.template.html` (frontmatter) |
-| `public/my-second-personal-site.me/cv/index.md` | `cv/index.html` | `cv/index.template.html` | none |
-| `public/my-personal-site.me/index.md` | `index.html` | `index.template.html` | none (gen-toc updates article list section first) |
-| `public/my-personal-site.me/projects/index.md` | `projects/index.html` | `projects/index.template.html` | none |
-| `public/my-personal-site.me/writing/*/index.md` | `writing/*/index.html` | `writing/article.template.html` | `footnotes` (frontmatter) |
+| `public/alexlerikos.me/index.md` | `index.html` | `index.template.html` | none (gen-toc updates article list section first) |
+| `public/alexlerikos.me/projects/index.md` | `projects/index.html` | `projects/index.template.html` | none |
+| `public/alexlerikos.me/writing/*/index.md` | `writing/*/index.html` | `writing/article.template.html` | `footnotes` (frontmatter) |
 
 ### URL convention
 The worker serves `index.html` implicitly from directories — `public/site.me/foo/index.html` is served at `https://site.me/foo/` with no `.html` in the URL. All pages follow this pattern: a named directory containing `index.html`.
@@ -143,31 +136,6 @@ All .md sources use YAML frontmatter. `title` is the only required field.
     - foldout
   ```
 
-### public/my-second-personal-site.me/index.md — fenced div conventions
-
-* `## intro {.intro}` — produces `<section class="intro">` with h2 suppressed
-* `## heading {#id}` — produces `<section id="id"><h2>heading</h2>`
-* `::: lede` — single-paragraph div → `<p class="lede">`
-* `::: story` — story block (collapsed by default)
-* `::: {.story .open}` — story block open by default
-* `::: ai-disclosure` — disclosure paragraph
-* Inside a story block: first pure-italic paragraph → `.meta` div; first h3 → summary heading
-
-### public/my-second-personal-site.me/cv/index.md — structural requirements
-The CV uses structural CSS selectors (`.cv-body > h3 + p`, `.cv-body > h3 + p + p`, etc.) instead of classes.
-**Blank lines are required between the three lines of each role entry:**
-```markdown
-### Company Name, City
-
-*Company description.*
-
-*Role title / date range*
-
-- Bullet item
-```
-Without blank lines, pandoc merges adjacent lines into one `<p>`, breaking selector chaining.
-Role titles use `*italic*` in source; CSS un-italics them via `h3 + p + p em { font-style: normal }`.
-
 ### dev articles — custom footnotes
 The footnotes.lua filter handles bidirectional links for custom footnotes with arbitrary labels.
 
@@ -188,19 +156,10 @@ The filter also strips the `id` from the `## Footnotes` h2 to avoid conflicting 
 
 ## file inventory
 
-### my-second-personal-site.me (public/my-second-personal-site.me/)
-* style.css — canonical palette/aesthetic reference
-* favicon.svg — "BH" monogram, slate-blue, glyphs as `<path>` (Helvetica Neue Bold via site-tool glyphs). SVG class `.accent` synced from `--accent` in style.css.
-* favicon.ico — Safari fallback; regenerate with `make -C public/my-second-personal-site.me favicon`
-* cv/style.css — CV-specific stylesheet (structural selectors, no classes)
-* cv/MyNameCV.pdf — PDF download (manually maintained - upload markdown to google docs, download as pdf works)
-* kreativ-architecture/index.html — pan/zoom SVG architecture viewer (hand-coded, bespoke JS)
-* kreativ-architecture/KreativCrossPlatformEngineArchitecture.svg
-
-### my-personal-site.me (public/my-personal-site.me/)
+### alexlerikos.me (public/alexlerikos.me/)
 * style.css — canonical palette/aesthetic reference. `--accent-bright` defined here for favicon use (brighter than `--accent` for legibility on gray browser-tab chrome).
 * favicon.svg — terminal "bh", amber/green accent, glyphs as `<path>` (Courier via site-tool glyphs). SVG classes `.bg` and `.accent-bright` synced from style.css.
-* favicon.ico — Safari fallback; regenerate with `make -C public/my-personal-site.me favicon`
+* favicon.ico — Safari fallback; regenerate with `make -C public/alexlerikos.me favicon`
 * rss.svg — RSS icon; uses `fill="currentColor"` as a CSS mask, no hardcoded colors, not a sync target.
 * feed.xml — RSS feed; generated by site-tool gen-toc alongside index.html; served at /feed/
 * index.md — article list section between markers is auto-updated by site-tool gen-toc; do not hand-edit that section

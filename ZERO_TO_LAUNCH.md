@@ -75,22 +75,10 @@ IMPORTANT: on macOS, the first step of the process (.svg -> .png) is done by qlm
   * The startup banner in the terminal will show the local URL your site is available at (e.g. `http://localhost:8787` or `http://192.168.4.55:8787`)
 * Hit 'b' in the terminal window to pop your browser to the local site
   * Your browser should be open showing the placeholder content for "My Personal Site"
-* From a terminal run ```cd public/my-personal-site.me && make -B```
+* From a terminal run ```cd public/alexlerikos.me && make -B```
   * The `-B` flag forces a full rebuild regardless of file timestamps — used here to confirm the pipeline runs cleanly. Normal day-to-day use is just `make`.
   * Check that it completes with no errors. Ideally no files change in git — meaning the pipeline reproduced the existing output exactly.
     * Caveat: if pandoc has changed version the output might differ slightly but render exactly the same.
-
-### See how multi-site support works (optional - skip if you're only going to serve one domain)
-If you want to serve multiple sites (domains) from this worker you'll need to know how this works.
-AGENTS.md has details, but here's how to test it out of the box.
-* In your browser after the URL in the address bar `http://localhost:8787` add a query parameter so it looks like this: `http://localhost:8787?d=my-second-personal-site.me` and hit 'enter'
-* You should see the title and text change to "My Other Personal Site".
-
-The `d` (for domain) query parameter is "sticky" (via a cookie) - after you use it once that's the site it will stay on until you change it back or launch a new browser.
-
-You'll notice if you edit the URL and remove the `?d=my-second-personal-site.me` and hit 'enter' it will stay on "My Other Personal Site" - that's the sticky behavior.
-
-You can switch back by changing the URL to `http://localhost:8787?d=my-personal-site.me`, and if you remove the query, again, it will stay with the last site you specified.
 
 ### Buy your domain from Cloudflare (skip if you already have one)
 IMPORTANT: Do not buy a domain from Wix, Squarespace or any of the one-stop-shops. They may lock you into their service and make it impossible to use Cloudflare for 60 days (plus the hassle of moving the domain). They also charge a markup for domain registration, which Cloudflare does not.
@@ -117,10 +105,6 @@ IMPORTANT: If you skipped the domain purchase step and are not sure what your do
   * It's not required, but it keeps things clear when the Worker and repo names match
 * Under `public/` rename `my-personal-site.me` - change `my-personal-site.me` to the domain name you want to serve
   * If you don't have a domain name picked out, don't worry this is easy to change later
-  * If you're only going to serve one domain, delete `public/my-second-personal-site.me`
-* If you're going to serve multiple domains
-  * rename `my-second-personal-site.me` to your 2nd domain
-  * copy `my-personal-site.me` under `public/` to a new directory for each domain you want to serve
   * The `sites` list in `src/index.js` is maintained automatically — running `make` from any site directory updates it to match the current directories in `public/`. No manual edits needed.
 * Edit the placeholder `index.md` files in your site content roots to reflect the new names
 * Verify everything is working as expected
@@ -134,11 +118,11 @@ IMPORTANT: If you skipped the domain purchase step and are not sure what your do
 
 * `maint/common.mk` — update `SITE_AUTHOR` to your name
 * The domain name is inferred automatically from the directory name — no variable to update in any Makefile.
-* `public/**/*.template.html` — templates co-located with their pages contain hardcoded placeholder domain names (`my-personal-site.me`, `my-second-personal-site.me`) in `<title>` tags, RSS link titles, nav name-marks, and cross-site nav links. The agent should grep for these and replace with your actual domains.
-* `public/**/*.md` — the content markdown files contain placeholder domain names in cross-site link text. The agent should grep for `my-personal-site.me` and `my-second-personal-site.me` and update any links or references to match your actual domains.
+* `public/**/*.template.html` — templates co-located with their pages contain hardcoded placeholder domain names (`my-personal-site.me`) in `<title>` tags, RSS link titles, nav name-marks, and nav links. The agent should grep for these and replace with your actual domain.
+* `public/**/*.md` — the content markdown files contain placeholder domain names in link text. The agent should grep for `my-personal-site.me` and update any links or references to match your actual domain.
 * `AGENTS.md` — update the domain and make target name references throughout to match your actual setup.
 
-After the agent is done, run `cd public/my-personal-site.me && make` (and `cd public/my-second-personal-site.me && make` if using a second site) to rebuild everything and verify there are no errors.
+After the agent is done, run `cd public/alexlerikos.me && make` to rebuild everything and verify there are no errors.
 
 * Commit your changes to "main" with git and push them to GitHub
 
@@ -183,11 +167,11 @@ The last steps here are for connecting that public presence to the domain name(s
 
 ### Add the domain to the list of domains your worker backs
   * On your Worker's Settings page there's a button for adding "custom domains"
-  * Add your bare domain name (e.g. `my-personal-site.me`)
-  * Add `www.my-personal-site.me`
+  * Add your bare domain name (e.g. `alexlerikos.me`)
+  * Add `www.alexlerikos.me`
     * Cloudflare should automatically create the CNAME DNS record for you
     * If you are using a separate registrar, ensure you have a CNAME alias that points `www.your-domain.me` to `your-domain.me`
-  * Verify that you're live by browsing to `https://my-personal-site.me` and `https://www.my-personal-site.me`
+  * Verify that you're live by browsing to `https://alexlerikos.me` and `https://www.alexlerikos.me`
     * It might take a minute for the DNS records to update and the site to become visible
 
 ## Congratulations, you're live!

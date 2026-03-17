@@ -10,7 +10,7 @@ SITE_TOOL_SH := $(MAINT_DIR)/site-tool.sh
 # wraps pandoc - detects if not installed, handles filter parsing from frontmatter
 GEN_HTML_SH := $(MAINT_DIR)/gen-html.sh
 
-# the content root directory name is the same as the bare domain name (e.g. my-personal-site.me)
+# the content root directory name is the same as the bare domain name (e.g. alexlerikos.me)
 DOMAIN := $(notdir $(CURDIR))
 
 # recursively finds all page index.md markdown sources and their corresponding html targets under the current directory

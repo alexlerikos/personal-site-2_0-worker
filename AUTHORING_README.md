@@ -1,4 +1,4 @@
-# my-personal-site (rename to match your repo)
+# alexlerikos.me
 
 ## Overview
 
@@ -10,31 +10,28 @@
 
 * **Custom 404 and 503 error pages** — a generic browser 404 is a dead end that makes your site feel unfinished. The worker serves a branded 404 page that keeps the visitor in context. The 503 page is shown for requests to an unknown domain, preventing a blank response in misconfiguration scenarios. Both are hand-coded HTML outside the build pipeline.
 
-* **Two or more domains, one deployment** — the worker routes by hostname, so two distinct sites can share one repo and one Cloudflare Worker. Useful for keeping a professional/CV site and a writing/projects site (plus any others you want to add) separate in identity while managing them together.
-
 * **Local development with multi-device preview** — `make -C maint serve` starts wrangler bound to `0.0.0.0`, making the local server reachable from any device on your network. Check mobile layout and Safari rendering without deploying.
 
 ## Cheat Sheet
-Day-to-day authoring reference for this two-domain Cloudflare Worker site. The build pipeline converts Markdown to HTML via pandoc, driven by site Makefiles in each content root (`public/[site]/Makefile`). The authoring utilities at a glance:
+Day-to-day authoring reference. The build pipeline converts Markdown to HTML via pandoc, driven by the site Makefile in the content root (`public/alexlerikos.me/Makefile`). The authoring utilities at a glance:
 
-* **New article** — `cd public/my-personal-site.me && make new-article SLUG=my-slug` scaffolds `writing/my-slug/index.md` from the article template. Edit the `.md` file, then publish with `cd public/my-personal-site.me && make`.
-* **Build and publish** — `cd public/<domain-name.tld> && make` generates all HTML, updates the article index and RSS feed, and syncs favicon colors.
-* **Favicon colors** — automatically synced from each site's `style.css` when running `make`. Sync manually with `make sync-svg-colors` from the site directory.
+* **New article** — `cd public/alexlerikos.me && make new-article SLUG=my-slug` scaffolds `writing/my-slug/index.md` from the article template. Edit the `.md` file, then publish with `cd public/alexlerikos.me && make`.
+* **Build and publish** — `cd public/alexlerikos.me && make` generates all HTML, updates the article index and RSS feed, and syncs favicon colors.
+* **Favicon colors** — automatically synced from `style.css` when running `make`. Sync manually with `make sync-svg-colors` from the site directory.
 * **site-tool** — the Go binary underlying the pipeline: `gen-toc` (article index + RSS), `sync-svg-colors` (CSS → SVG color sync), `glyphs` (font path extraction for favicon design). See the site-tool section below.
-  * You generally will not be using site-tool directly. It's invoked by `maint/gen-html.sh` and the site Makefiles.
+  * You generally will not be using site-tool directly. It's invoked by `maint/gen-html.sh` and the site Makefile.
 
-## Domains
+## Domain
 
 | Domain | Content root |
 |---|---|
-| `my-personal-site.me` | `public/my-personal-site.me/` |
-| `my-second-personal-site.me` | `public/my-second-personal-site.me/` |
+| `alexlerikos.me` | `public/alexlerikos.me/` |
 
-The Worker (`src/index.js`) routes by hostname — each domain maps directly to its directory under `public/`. Unknown domains return a custom 503 error page.
+The Worker (`src/index.js`) routes by hostname — the domain maps directly to its directory under `public/`. Unknown domains return a custom 503 error page.
 
 ## Adding or removing domains
 
-**Adding a domain** — copy an existing content root directory (e.g. `cp -r public/my-personal-site.me public/new-site.com`), then edit the content to fit the new site. The Makefile rules use relative paths with no hardcoded domain variables, so nothing in the build config needs changing. `src/index.js` is updated automatically on the next `make` invocation from either site directory.
+**Adding a domain** — copy the existing content root directory (e.g. `cp -r public/alexlerikos.me public/new-site.com`), then edit the content to fit the new site. The Makefile rules use relative paths with no hardcoded domain variables, so nothing in the build config needs changing. `src/index.js` is updated automatically on the next `make` invocation from either site directory.
 
 **Removing a domain** — delete the content root directory, then run:
 
@@ -53,27 +50,21 @@ NOTE: this is synchronous.
 Wrangler prints your LAN IP in its startup banner.
 You can use `http://<your-lan-ip>:8787/` from any device on the network.
 
-Locally there is no hostname distinction, so use the `?d=` query parameter to select a site on first load:
+Locally there is no hostname distinction, so use the `?d=` query parameter to select the site on first load:
 
-- `http://localhost:8787/?d=my-second-personal-site.me` → my-second-personal-site.me
-- `http://localhost:8787/?d=my-personal-site.me` → my-personal-site.me
+- `http://localhost:8787/?d=alexlerikos.me` → alexlerikos.me
 
 This sets a session cookie, so subsequent internal navigation works without repeating the parameter. Also works on `*.workers.dev` preview URLs.
-
-NOTE: cross-site (my-personal-site.me <-> my-second-personal-site.me) links won't work in local development because they use absolute urls (those will always point to the deployed site, not the local work in progress)
 
 NOTE: wrangler monitors changes to all files, including `src/index.js` - you don't need to kill and restart it to observe edits.
 
 ## Content authoring
 
-All site HTML files besides the 404 and 503 error pages are generated from paired `.md` sources via pandoc. Site targets run from each site's directory; infra targets (`serve`) run from `maint/`:
+All site HTML files besides the 404 and 503 error pages are generated from paired `.md` sources via pandoc. Site targets run from the site directory; infra targets (`serve`) run from `maint/`:
 
 ```sh
-# my-personal-site.me
-cd public/my-personal-site.me && make              # build everything + sync SVG colors
-
-# my-second-personal-site.me
-cd public/my-second-personal-site.me && make        # build everything + sync SVG colors
+# alexlerikos.me
+cd public/alexlerikos.me && make              # build everything + sync SVG colors
 ```
 
 There are no separate per-page targets — `make` (i.e. `make public`) builds everything.
@@ -82,7 +73,7 @@ Use `make -B` to force a full rebuild when only a filter changed — Lua filters
 
 ## Adding pages
 
-**New writing article** — `cd public/my-personal-site.me && make new-article SLUG=my-slug` scaffolds `writing/my-slug/index.md` from the article template. The new page is picked up automatically on the next `make`.
+**New writing article** — `cd public/alexlerikos.me && make new-article SLUG=my-slug` scaffolds `writing/my-slug/index.md` from the article template. The new page is picked up automatically on the next `make`.
 
 **New generated page** (any `.md → .html` page) — create the directory and drop in `index.md` plus a sibling `index.template.html`. Make's recursive file scan picks it up automatically — no Makefile changes needed. Specify any Lua filters in the frontmatter `filters:` list.
 
@@ -104,26 +95,24 @@ the/group/%/index.html: the/group/%/index.md the/group/shared.template.html
 
 ## RSS feed
 
-`public/my-personal-site.me/feed.xml` is generated automatically by `site-tool gen-toc` as part of `make`. It is served at `/feed/` (and `/feed`) with the correct `Content-Type`.
+`public/alexlerikos.me/feed.xml` is generated automatically by `site-tool gen-toc` as part of `make`. It is served at `/feed/` (and `/feed`) with the correct `Content-Type`.
 
 To include an item description in the feed, add a `description` field to the article's YAML frontmatter.
 
 ## Favicons
 
-Both sites use `favicon.svg` + `favicon.ico` (Safari fallback). The SVG files use `<path>` elements extracted from actual font files via `site-tool glyphs` for consistent cross-platform rendering — do not replace paths with `<text>` elements.
+The site uses `favicon.svg` + `favicon.ico` (Safari fallback). The SVG file uses `<path>` elements extracted from actual font files via `site-tool glyphs` for consistent cross-platform rendering — do not replace paths with `<text>` elements.
 
-SVG colors are kept in sync with each site's `style.css` via `site-tool sync-svg-colors`. SVG class names map directly to CSS custom property names (e.g. class `accent` → `--accent`). Run automatically as part of `make`, or manually:
+SVG colors are kept in sync with `style.css` via `site-tool sync-svg-colors`. SVG class names map directly to CSS custom property names (e.g. class `accent` → `--accent`). Run automatically as part of `make`, or manually:
 
 ```sh
-cd public/my-personal-site.me && make sync-svg-colors
-cd public/my-second-personal-site.me && make sync-svg-colors
+cd public/alexlerikos.me && make sync-svg-colors
 ```
 
 To regenerate an `.ico` from its SVG (requires ImageMagick):
 
 ```sh
-cd public/my-personal-site.me && make favicon
-cd public/my-second-personal-site.me && make favicon
+cd public/alexlerikos.me && make favicon
 ```
 
 On macOS, qlmanage is used for reliable SVG rendering. On Windows and Linux, ImageMagick's SVG renderer is used directly — verify the output looks correct. If the result is bad, fall back to a free online SVG→ICO converter as a one-off. This is rarely needed — only when the favicon design changes.
