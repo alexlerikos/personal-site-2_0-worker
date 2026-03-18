@@ -2,6 +2,15 @@
 title: writing
 ---
 
+::: profile
+![Alex Lerikos](/profile.webp){.profile-photo}
+
+[Alex Lerikos]{.profile-name}
+
+[Senior Software Engineer & Solutions Creator]{.profile-title}
+:::
+<!-- /profile -->
+
 ::: callout
 I have something to say: It's better to burn out than to [fade away](/writing/callout-article/)
 :::

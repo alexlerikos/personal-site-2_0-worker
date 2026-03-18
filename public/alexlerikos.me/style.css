@@ -196,6 +196,49 @@ section {
     flex-shrink: 0;
 }
 
+/* ── Profile block (index) ──────────────────────────────── */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 0 24px;
+}
+
+.profile figure {
+    margin: 0;
+}
+
+.profile figure figcaption {
+    display: none;
+}
+
+.profile-photo {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-name {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 16px;
+    letter-spacing: -0.01em;
+}
+
+.profile-title {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--text-meta);
+    margin-top: 4px;
+}
+
 /* ── Post list (index) ───────────────────────────────────── */
 .post-list {
     margin-top: 24px;
