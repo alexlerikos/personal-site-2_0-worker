@@ -1,7 +1,3 @@
----
-title: writing
----
-
 ::: profile
 ![Alex Lerikos](/profile.webp){.profile-photo}
 
@@ -11,10 +7,6 @@ title: writing
 :::
 <!-- /profile -->
 
-::: callout
-I have something to say: It's better to burn out than to [fade away](/writing/callout-article/)
-:::
-<!-- /callout -->
 
 <!-- ARTICLE-LIST-BEGIN -->
 ::: post-list
