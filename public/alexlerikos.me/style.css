@@ -243,6 +243,46 @@ section {
     margin-top: 4px;
 }
 
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.social-links > p {
+    display: contents;
+}
+
+.social-link {
+    display: block;
+    width: 18px;
+    height: 18px;
+    color: var(--text-meta);
+    background-color: currentColor;
+    transition: color 0.15s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.social-github {
+    -webkit-mask: url(/github.svg) no-repeat center / contain;
+    mask: url(/github.svg) no-repeat center / contain;
+}
+
+.social-linkedin {
+    -webkit-mask: url(/linkedin.svg) no-repeat center / contain;
+    mask: url(/linkedin.svg) no-repeat center / contain;
+}
+
+.social-strava {
+    -webkit-mask: url(/strava.svg) no-repeat center / contain;
+    mask: url(/strava.svg) no-repeat center / contain;
+}
+
 /* ── Post list (index) ───────────────────────────────────── */
 .post-list {
     margin-top: 24px;
