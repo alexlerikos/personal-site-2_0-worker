@@ -284,6 +284,10 @@ section {
 }
 
 /* ── Post list (index) ───────────────────────────────────── */
+body.page-index .post-list {
+    display: none;
+}
+
 .post-list {
     margin-top: 24px;
 }

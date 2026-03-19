@@ -11,3 +11,5 @@
 
 maint/bin/site-tool
 maint/bin/site-tool.exe
+# AI slop
+.opencode/
