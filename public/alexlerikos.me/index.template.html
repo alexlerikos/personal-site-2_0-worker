@@ -15,6 +15,7 @@
         />
     </head>
     <body class="page-index">
+        <!-- top nav kept in DOM for pandoc (hidden by CSS on index) -->
         <nav>
             <div class="name-rss">
                 <a class="name-mark" href="/">alexlerikos.me</a>
@@ -24,8 +25,340 @@
             </div>
         </nav>
 
-        <section>
-            $body$
-        </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <img
+                    alt="Alex Lerikos"
+                    class="sidebar-photo"
+                    src="/profile.webp"
+                />
+                <div class="sidebar-name">Alex Lerikos</div>
+                <div class="sidebar-title">Senior Software Engineer</div>
+                <div class="sidebar-social">
+                    <a
+                        href="https://github.com/alexlerikos"
+                        class="social-link social-github"
+                        aria-label="GitHub"
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                        class="social-link social-linkedin"
+                        aria-label="LinkedIn"
+                    ></a>
+                    <a
+                        href="https://www.strava.com/athletes/580787"
+                        class="social-link social-strava"
+                        aria-label="Strava"
+                    ></a>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="active" href="#overview">
+                    <span class="nav-icon nav-icon-person"></span>
+                    Overview
+                </a>
+                <a href="#experience">
+                    <span class="nav-icon nav-icon-work"></span>
+                    Experience
+                </a>
+                <a href="#projects">
+                    <span class="nav-icon nav-icon-terminal"></span>
+                    Projects
+                </a>
+                <a href="#articles">
+                    <span class="nav-icon nav-icon-article"></span>
+                    Writing
+                </a>
+                <a href="#skills">
+                    <span class="nav-icon nav-icon-layers"></span>
+                    Technical Skills
+                </a>
+                <a href="#contact">
+                    <span class="nav-icon nav-icon-mail"></span>
+                    Contact
+                </a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a class="sidebar-cta" href="/feed/">
+                    <span class="rss-icon"></span>
+                    RSS Feed
+                </a>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <main class="index-main">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <span>Engineering</span>
+                <span class="breadcrumb-dot"></span>
+                <span>Documentation</span>
+                <span class="breadcrumb-dot"></span>
+                <span class="current">Portfolio</span>
+            </div>
+
+            <!-- Overview -->
+            <section class="index-section" id="overview">
+                <div class="editorial-grid">
+                    <div>
+                        <h2 class="hero-headline">
+                            AI GEN PLACEHOLDER: Building software that solves
+                            real problems with elegant simplicity.
+                        </h2>
+                        <p class="hero-body">
+                            AI GEN PLACEHOLDER: Senior Software Engineer
+                            specializing in full-stack development, systems
+                            design, and pragmatic solutions. I focus on shipping
+                            quality work and understanding the problem before
+                            writing code.
+                        </p>
+                        <div class="hero-tags">
+                            <span class="hero-tag accent"
+                                >AI GEN PLACEHOLDER</span
+                            >
+                            <span class="hero-tag">Systems Design</span>
+                            <span class="hero-tag">Full-Stack</span>
+                            <span class="hero-tag">Solutions</span>
+                        </div>
+                        <div class="hero-links">
+                            <a href="https://github.com/alexlerikos">
+                                <span
+                                    class="link-icon social-link social-github"
+                                ></span>
+                                GitHub
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                            >
+                                <span
+                                    class="link-icon social-link social-linkedin"
+                                ></span>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="focus-sidebar">
+                        <p class="focus-label">Focus Areas</p>
+                        <ul class="focus-list">
+                            <li>
+                                <span class="focus-num">01.</span>
+                                <span
+                                    >AI GEN PLACEHOLDER: Pragmatic
+                                    architecture</span
+                                >
+                            </li>
+                            <li>
+                                <span class="focus-num">02.</span>
+                                <span
+                                    >AI GEN PLACEHOLDER: Developer
+                                    experience</span
+                                >
+                            </li>
+                            <li>
+                                <span class="focus-num">03.</span>
+                                <span
+                                    >AI GEN PLACEHOLDER: Shipping quality</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="index-section" id="experience">
+                <h3 class="section-heading">Experience</h3>
+                <div>
+                    <div class="exp-item">
+                        <div class="exp-date">2021 &mdash; Present</div>
+                        <div>
+                            <div class="exp-role">
+                                AI GEN PLACEHOLDER: Senior Software Engineer
+                            </div>
+                            <div class="exp-company">
+                                AI GEN PLACEHOLDER: Company Name
+                            </div>
+                            <p class="exp-desc">
+                                AI GEN PLACEHOLDER: Description of role, impact,
+                                and technologies used. Replace this with your
+                                actual experience.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">PLACEHOLDER</span>
+                                <span class="exp-tag">TECH</span>
+                                <span class="exp-tag">STACK</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-date">2018 &mdash; 2021</div>
+                        <div>
+                            <div class="exp-role">
+                                AI GEN PLACEHOLDER: Software Engineer
+                            </div>
+                            <div class="exp-company">
+                                AI GEN PLACEHOLDER: Previous Company
+                            </div>
+                            <p class="exp-desc">
+                                AI GEN PLACEHOLDER: Description of previous
+                                role, impact, and technologies used. Replace
+                                this with your actual experience.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">PLACEHOLDER</span>
+                                <span class="exp-tag">TECH</span>
+                                <span class="exp-tag">STACK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="index-section" id="projects">
+                <h3 class="section-heading">Projects</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <span class="project-card-icon icon-hub"></span>
+                            <a class="project-card-link" href="#"> &nearr; </a>
+                        </div>
+                        <div class="project-card-title">
+                            AI GEN PLACEHOLDER: Project One
+                        </div>
+                        <p class="project-card-desc">
+                            AI GEN PLACEHOLDER: Brief description of the
+                            project, what problem it solves, and its key
+                            technical characteristics.
+                        </p>
+                        <div class="project-card-tags">
+                            <span>#PLACEHOLDER</span>
+                            <span>#TECH</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <span
+                                class="project-card-icon icon-security"
+                            ></span>
+                            <a class="project-card-link" href="#"> &nearr; </a>
+                        </div>
+                        <div class="project-card-title">
+                            AI GEN PLACEHOLDER: Project Two
+                        </div>
+                        <p class="project-card-desc">
+                            AI GEN PLACEHOLDER: Brief description of the
+                            project, what problem it solves, and its key
+                            technical characteristics.
+                        </p>
+                        <div class="project-card-tags">
+                            <span>#PLACEHOLDER</span>
+                            <span>#TECH</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Articles (dynamic — pandoc injects here) -->
+            <section class="index-section" id="articles">
+                <h3 class="section-heading">Writing</h3>
+                $body$
+            </section>
+
+            <!-- Skills -->
+            <section class="index-section" id="skills">
+                <h3 class="section-heading">Skill Topology</h3>
+                <div class="skills-grid">
+                    <div class="skill-bars">
+                        <div>
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-label"
+                                    >AI GEN PLACEHOLDER: Skill Area</span
+                                >
+                                <span class="skill-bar-level">ADVANCED</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar-fill"
+                                    style="width: 90%"
+                                ></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-label"
+                                    >AI GEN PLACEHOLDER: Skill Area</span
+                                >
+                                <span class="skill-bar-level">ADVANCED</span>
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar-fill"
+                                    style="width: 85%"
+                                ></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-bar-header">
+                                <span class="skill-bar-label"
+                                    >AI GEN PLACEHOLDER: Skill Area</span
+                                >
+                                <span class="skill-bar-level"
+                                    >INTERMEDIATE+</span
+                                >
+                            </div>
+                            <div class="skill-bar-track">
+                                <div
+                                    class="skill-bar-fill"
+                                    style="width: 70%"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <p class="tech-stack-label">Technical Stack</p>
+                        <div class="tech-stack-grid">
+                            <div>
+                                <p class="tech-stack-category">Languages</p>
+                                <p class="tech-stack-items">
+                                    AI GEN PLACEHOLDER
+                                </p>
+                            </div>
+                            <div>
+                                <p class="tech-stack-category">DevOps</p>
+                                <p class="tech-stack-items">
+                                    AI GEN PLACEHOLDER
+                                </p>
+                            </div>
+                            <div>
+                                <p class="tech-stack-category">Databases</p>
+                                <p class="tech-stack-items">
+                                    AI GEN PLACEHOLDER
+                                </p>
+                            </div>
+                            <div>
+                                <p class="tech-stack-category">Platforms</p>
+                                <p class="tech-stack-items">
+                                    AI GEN PLACEHOLDER
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="index-footer" id="contact">
+                <p class="index-footer-copy">&copy; 2026 Alex Lerikos.</p>
+                <div class="index-footer-links">
+                    <a href="https://github.com/alexlerikos">GitHub</a>
+                    <a href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                        >LinkedIn</a
+                    >
+                    <a href="/feed/">RSS</a>
+                </div>
+            </footer>
+        </main>
     </body>
 </html>
