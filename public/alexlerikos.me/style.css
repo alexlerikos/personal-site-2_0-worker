@@ -619,6 +619,11 @@ body.page-index > nav {
     border-bottom: none;
 }
 
+/* ── Hamburger toggle (hidden on desktop) ────────────────── */
+.sidebar-menu-toggle {
+    display: none;
+}
+
 .sidebar-nav a {
     display: flex;
     align-items: center;
@@ -1152,7 +1157,7 @@ body.page-index .post-list {
 /* Tablet: sidebar collapses to top bar */
 @media (max-width: 1024px) {
     .sidebar {
-        position: static;
+        position: relative;
         width: 100%;
         height: auto;
         flex-direction: row;
@@ -1160,6 +1165,7 @@ body.page-index .post-list {
         padding: 16px 24px;
         gap: 16px;
         flex-wrap: wrap;
+        overflow: visible;
     }
 
     .sidebar-profile {
@@ -1184,19 +1190,117 @@ body.page-index .post-list {
         display: none;
     }
 
+    /* Hide nav links in collapsed top bar */
     .sidebar-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0;
-    }
-
-    .sidebar-nav a {
-        padding: 6px 10px;
-        font-size: 0.75rem;
-    }
-
-    .sidebar-nav .nav-icon {
         display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 8px 0;
+        z-index: 100;
+    }
+
+    /* Show dropdown when .nav-open is toggled on aside */
+    .sidebar.nav-open .sidebar-nav {
+        display: flex;
+    }
+
+    .sidebar.nav-open .sidebar-nav a {
+        padding: 10px 24px;
+        font-size: 0.82rem;
+        border-radius: 0;
+    }
+
+    .sidebar.nav-open .sidebar-nav .nav-icon {
+        display: block;
+    }
+
+    /* Hamburger button */
+    .sidebar-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-meta);
+        border-radius: 6px;
+        position: relative;
+        z-index: 101;
+        transition:
+            background 0.15s ease,
+            color 0.15s ease;
+    }
+
+    .sidebar-menu-toggle:hover {
+        background: var(--surface-2);
+        color: var(--text);
+    }
+
+    /* Three-line icon */
+    .sidebar-menu-icon {
+        display: block;
+        position: relative;
+        width: 18px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 1px;
+        transition: background 0.2s ease;
+    }
+
+    .sidebar-menu-icon::before,
+    .sidebar-menu-icon::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 1px;
+        transition:
+            transform 0.2s ease,
+            top 0.2s ease 0.2s,
+            bottom 0.2s ease 0.2s;
+    }
+
+    .sidebar-menu-icon::before {
+        top: -6px;
+    }
+
+    .sidebar-menu-icon::after {
+        bottom: -6px;
+    }
+
+    /* Animate to X when open */
+    .sidebar.nav-open .sidebar-menu-icon {
+        background: transparent;
+    }
+
+    .sidebar.nav-open .sidebar-menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+        transition:
+            top 0.2s ease,
+            transform 0.2s ease 0.2s;
+    }
+
+    .sidebar.nav-open .sidebar-menu-icon::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+        transition:
+            bottom 0.2s ease,
+            transform 0.2s ease 0.2s;
     }
 
     .sidebar-social {
