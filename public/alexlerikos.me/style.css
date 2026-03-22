@@ -770,7 +770,7 @@ body.page-index .index-section section {
 /* ── Editorial grid (overview) ───────────────────────────── */
 .editorial-grid {
     display: grid;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: 1fr;
     gap: 56px;
 }
 
@@ -841,45 +841,6 @@ body.page-index .index-section section {
     width: 16px;
     height: 16px;
     background-color: currentColor;
-}
-
-/* ── Focus areas sidebar ─────────────────────────────────── */
-.focus-sidebar {
-    border-left: 1px solid var(--border);
-    padding-left: 28px;
-}
-
-.focus-label {
-    font-size: 0.6rem;
-    color: var(--text-meta);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.focus-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.focus-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text);
-}
-
-.focus-num {
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    padding-top: 2px;
-    flex-shrink: 0;
 }
 
 /* ── Experience timeline ─────────────────────────────────── */
@@ -1310,14 +1271,6 @@ body.page-index .post-list {
     .index-main {
         margin-left: 0;
         padding: 32px 28px;
-    }
-
-    .editorial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .focus-sidebar {
-        display: none;
     }
 
     .hero-headline {
