@@ -771,8 +771,12 @@ body.page-index .index-section section {
     text-align: center;
 }
 
+#overview .hero-headline {
+    text-align: left;
+}
+
 #overview .hero-tags {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #overview .hero-links {
@@ -793,9 +797,9 @@ body.page-index .index-section section {
     color: var(--text-meta);
     line-height: 1.65;
     max-width: 80ch;
-    margin: 0 auto 28px;
+    margin-bottom: 28px;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
 }
 
 .hero-tags {
