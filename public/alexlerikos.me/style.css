@@ -15,7 +15,7 @@
     --text: #1d1d1f;
     --text-meta: #6e6e73;
     --border: #d2d2d7;
-    --accent: #0066cc;
+    --accent: #007aff;
     --accent-dim: #004c99;
     --accent-bright: #0071e3;
 
@@ -40,7 +40,7 @@
         --text: #f5f5f7;
         --text-meta: #86868b;
         --border: #424245;
-        --accent: #2997ff;
+        --accent: #0084ff;
         --accent-dim: #0071e3;
         --accent-bright: #2997ff;
     }
@@ -741,7 +741,7 @@ body.page-index > nav {
 
 /* ── Index sections ──────────────────────────────────────── */
 .index-section {
-    margin-bottom: 96px;
+    margin-bottom: 80px;
 }
 
 body.page-index .index-section section {
@@ -750,21 +750,13 @@ body.page-index .index-section section {
 
 /* ── Section heading with rule ───────────────────────────── */
 .section-heading {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--text);
     margin-bottom: 40px;
-}
-
-.section-heading::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
 }
 
 /* ── Editorial grid (overview) ───────────────────────────── */
@@ -775,9 +767,21 @@ body.page-index .index-section section {
     justify-items: center;
 }
 
+#overview .editorial-grid > div {
+    text-align: center;
+}
+
+#overview .hero-tags {
+    justify-content: center;
+}
+
+#overview .hero-links {
+    justify-content: center;
+}
+
 .hero-headline {
-    font-size: 2.6rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 600;
     letter-spacing: -0.04em;
     line-height: 1.1;
     color: var(--text);
@@ -788,9 +792,10 @@ body.page-index .index-section section {
     font-size: 1.1rem;
     color: var(--text-meta);
     line-height: 1.65;
-    max-width: 60ch;
-    margin-bottom: 28px;
+    max-width: 80ch;
+    margin: 0 auto 28px;
     font-weight: 500;
+    text-align: center;
 }
 
 .hero-tags {
@@ -801,20 +806,14 @@ body.page-index .index-section section {
 }
 
 .hero-tag {
-    padding: 5px 14px;
+    padding: 3px 10px;
     background: var(--surface);
     color: var(--text-meta);
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    border: 1px solid var(--border);
-}
-
-.hero-tag.accent {
-    color: var(--accent);
-    border-color: var(--accent);
 }
 
 .hero-links {
@@ -853,7 +852,7 @@ body.page-index .index-section section {
 }
 
 .exp-date {
-    font-family: var(--font-mono);
+    font-family: var(--font);
     font-size: 0.7rem;
     font-weight: 700;
     color: var(--text-meta);
@@ -891,7 +890,7 @@ body.page-index .index-section section {
 }
 
 .exp-tag {
-    font-family: var(--font-mono);
+    font-family: var(--font);
     font-size: 0.6rem;
     font-weight: 700;
     color: var(--text-meta);
@@ -974,7 +973,7 @@ body.page-index .index-section section {
 .project-card-tags {
     display: flex;
     gap: 14px;
-    font-family: var(--font-mono);
+    font-family: var(--font);
     font-size: 0.6rem;
     font-weight: 700;
     color: var(--accent);
@@ -1010,7 +1009,7 @@ body.page-index .index-section section {
 }
 
 .skill-bar-level {
-    font-family: var(--font-mono);
+    font-family: var(--font);
     font-size: 0.6rem;
     font-weight: 700;
     color: var(--accent);
@@ -1039,7 +1038,7 @@ body.page-index .index-section section {
 }
 
 .tech-stack-label {
-    font-family: var(--font-mono);
+    font-family: var(--font);
     font-size: 0.6rem;
     font-weight: 700;
     color: var(--accent);

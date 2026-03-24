@@ -112,9 +112,7 @@
                             writing code.
                         </p>
                         <div class="hero-tags">
-                            <span class="hero-tag accent"
-                                >AI GEN PLACEHOLDER</span
-                            >
+                            <span class="hero-tag">AI GEN PLACEHOLDER</span>
                             <span class="hero-tag">Systems Design</span>
                             <span class="hero-tag">Full-Stack</span>
                             <span class="hero-tag">Solutions</span>
@@ -136,7 +134,6 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -330,32 +327,33 @@
                     <a href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
                         >LinkedIn</a
                     >
+                    <a href="https://www.strava.com/athletes/580787">Strava</a>
                     <a href="/feed/">RSS</a>
                 </div>
             </footer>
         </main>
         <script>
             (function () {
-                var btn = document.querySelector('.sidebar-menu-toggle');
-                var aside = document.querySelector('.sidebar');
+                var btn = document.querySelector(".sidebar-menu-toggle");
+                var aside = document.querySelector(".sidebar");
                 if (!btn) return;
-                btn.addEventListener('click', function () {
-                    var open = aside.classList.toggle('nav-open');
-                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                btn.addEventListener("click", function () {
+                    var open = aside.classList.toggle("nav-open");
+                    btn.setAttribute("aria-expanded", open ? "true" : "false");
                 });
-                document.addEventListener('click', function (e) {
+                document.addEventListener("click", function (e) {
                     if (!aside.contains(e.target)) {
-                        aside.classList.remove('nav-open');
-                        btn.setAttribute('aria-expanded', 'false');
+                        aside.classList.remove("nav-open");
+                        btn.setAttribute("aria-expanded", "false");
                     }
                 });
-                aside.querySelectorAll('.sidebar-nav a').forEach(function (a) {
-                    a.addEventListener('click', function () {
-                        aside.classList.remove('nav-open');
-                        btn.setAttribute('aria-expanded', 'false');
+                aside.querySelectorAll(".sidebar-nav a").forEach(function (a) {
+                    a.addEventListener("click", function () {
+                        aside.classList.remove("nav-open");
+                        btn.setAttribute("aria-expanded", "false");
                     });
                 });
-            }());
+            })();
         </script>
     </body>
 </html>
