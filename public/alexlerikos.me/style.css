@@ -198,8 +198,8 @@ section {
     width: 14px;
     height: 14px;
     background-color: currentColor;
-    -webkit-mask: url(/rss.svg) no-repeat center / contain;
-    mask: url(/rss.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/rss.svg) no-repeat center / contain;
+    mask: url(/assets/rss.svg) no-repeat center / contain;
     flex-shrink: 0;
 }
 
@@ -272,23 +272,23 @@ section {
 }
 
 .social-github {
-    -webkit-mask: url(/github.svg) no-repeat center / contain;
-    mask: url(/github.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/github.svg) no-repeat center / contain;
+    mask: url(/assets/github.svg) no-repeat center / contain;
 }
 
 .social-linkedin {
-    -webkit-mask: url(/linkedin.svg) no-repeat center / contain;
-    mask: url(/linkedin.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/linkedin.svg) no-repeat center / contain;
+    mask: url(/assets/linkedin.svg) no-repeat center / contain;
 }
 
 .social-strava {
-    -webkit-mask: url(/strava.svg) no-repeat center / contain;
-    mask: url(/strava.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/strava.svg) no-repeat center / contain;
+    mask: url(/assets/strava.svg) no-repeat center / contain;
 }
 
 .social-rss {
-    -webkit-mask: url(/rss.svg) no-repeat center / contain;
-    mask: url(/rss.svg) no-repeat center / contain;
+    -webkit-mask: url(/assets/rss.svg) no-repeat center / contain;
+    mask: url(/assets/rss.svg) no-repeat center / contain;
 }
 
 /* ── Post list (index) ───────────────────────────────────── */

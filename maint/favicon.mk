@@ -2,8 +2,8 @@
 # common.mk must be included before this file
 
 CSS         := style.css
-FAVICON_SVG := favicon.svg
-FAVICON_ICO := favicon.ico
+FAVICON_SVG := assets/favicon.svg
+FAVICON_ICO := assets/favicon.ico
 
 .PHONY: sync-svg-colors favicon
 
