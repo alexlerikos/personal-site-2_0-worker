@@ -31,9 +31,9 @@ This was a good start. But as a developer who specializes in user experience imp
 
 To make a first-pass design I used the recently updated[^4] [Google Stitch](https://stitch.withgoogle.com/) to generate a mock up. 
 
-Google Stitch works as a website or mobile app generative UI service. However unlike services like Nano Banana or Midjourney, the generated mockups are content-editable and can even be used to create basic wireframes and UI flows similar to Figma. When you’re ready, you can export a HTML file and a DESIGN.md file that can be used to view this design in the browser and integrate in our project. 
+Google Stitch works as a website or mobile app generative UI service. However unlike services like Nano Banana or Midjourney, the generated mockups are content-editable and can even be used to create basic wireframes and UI flows similar to Figma. When you’re ready, you can export a HTML file and a `DESIGN.md` file that can be used to view this design in the browser and integrate in our project. 
 
-The DESIGN.md file allows our AI coding agents to have a design language and reference to use when iterating on this project.
+The `DESIGN.md` file allows our AI coding agents to have a design language and reference to use when iterating on this project.
 
 However, it’s not all sunshine and vibe-generated rainbows. As of the posting of this article, I found several issues trying to generate designs using this tool, particularly around iterating on each design via prompts. The tool would frequently forget the design language we had agreed upon, such as fonts and color scheme and return designs that are (I am assuming) are more adjusting for its model’s training data and not iterating on the previous design.
 
@@ -47,7 +47,7 @@ Export your design and get ready to start actually integrating.
 
 With your HTML and `DESIGN.md` files in hand, we can now begin integrating our website vision into tangible project. 
 
-The following steps are how I went about integrating this. However feel free to do you. I’ll be the first to say my frontend web engineering experience is “limited” but I do have a functional understanding of HTML and CSS which I used to throw my coding agent along by implementing changes to the website layout, section by section. 
+The following steps are how I went about integrating this. However feel free to do you. I’ll be the first to say my frontend web engineering experience is limited but I do have a functional understanding of HTML and CSS which I used to throw my coding agent along by implementing changes to the website layout, section by section. 
 
 We need to have our Stitch HTML template overwrite our projects `./public/<website-domain>/index.template.html` file. 
 
@@ -56,7 +56,7 @@ I instructed my coding agent in `Plan` mode to do the following:
 substitute my template.html file for the ./public/<website-domain>/index.template.html file. Keep the ability to publish articles under a section called "Writing"
 ```
 
-After this port was complete, I had the coding agent review the new `index.template.html` file against the `DESIGN.md` file for consistency.
+After this port was complete, I had the coding agent review the new `index.template.html` file against the ``DESIGN.md`` file for consistency.
 
 To complete the site and content, I went through each section and made updates to the `index.template.html` and the `style.css` files to match my targeted layout.
 
