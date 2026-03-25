@@ -5,14 +5,14 @@
     <link>https://alexlerikos.me/</link>
     <description>Writing by My Name</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Mar 2026 10:41:18 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2026 10:18:22 +0000</lastBuildDate>
     <atom:link href="https://alexlerikos.me/feed/" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Sample Article One: A Clever Subtitle</title>
-      <link>https://alexlerikos.me/writing/sample-article-one/</link>
-      <guid isPermaLink="true">https://alexlerikos.me/writing/sample-article-one/</guid>
-      <pubDate>Wed, 14 Jan 2026 00:00:00 +0000</pubDate>
-      <description>A description of sample article one</description>
+      <title>How I Build This Site: (And so can you!)</title>
+      <link>https://alexlerikos.me/writing/article-1-How-I-Built-This-Site/</link>
+      <guid isPermaLink="true">https://alexlerikos.me/writing/article-1-How-I-Built-This-Site/</guid>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Instructions for how to build a personal website and blog</description>
     </item>
   </channel>
 </rss>

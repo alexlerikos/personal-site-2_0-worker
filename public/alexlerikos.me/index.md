@@ -1,12 +1,12 @@
 <!-- ARTICLE-LIST-BEGIN -->
 ::: post-list
 ::: post-item
-[2026-01-14]{.post-date}
+[2026-03-24]{.post-date}
 
-[Sample Article One: A Clever Subtitle](/writing/sample-article-one/){.post-title}
+[How I Build This Site: (And so can you!)](/writing/article-1-How-I-Built-This-Site/){.post-title}
 
 ::: post-tags
-[topic-tag1]{.tag} [topic-tag2]{.tag} 
+[AI]{.tag} [web development]{.tag} [markdown]{.tag} 
 :::
 
 :::
