@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>How I Build This Site — alexlerikos.me</title>
+        <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="alternate" type="text/markdown" href="./index.md" />
+    </head>
+    <body>
+        <nav>
+            <div class="name-rss">
+                <a class="name-mark" href="/">alexlerikos.me</a>
+                <a href="/feed/" class="rss-feed-link"
+                    ><span class="rss-icon"></span> RSS</a
+                >
+            </div>
+            <ul>
+                <li><a href="/">return to profile</a></li>
+            </ul>
+        </nav>
+
+        <div class="post-header">
+                        <div class="meta">
+                2026-03-24 &nbsp;·&nbsp; AI &nbsp;·&nbsp; web
+development &nbsp;·&nbsp; markdown
+            </div>
+                        <h1>How I Build This Site</h1>
+                        <p class="subtitle">(And so can you!)</p>
+                    </div>
+
+        <div class="post-body"><h2 id="where-to-start">Where to
+start</h2>
+<p>This project was originated from the template: <a
+href="https://github.com/benn-herrera/personal-site-for-cost-of-domain">Zero
+to personal site launch via Cloudflare and Github for just the cost of a
+domain.</a> by Benn Herrera<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>. This template enables
+the use of Markdown to generate a landing page, navigate to content and
+publish articles in a blog-style list that can be subscribed to via
+RSS.</p>
+<p>Importantly, Benn also provides instructions<a href="#fn2"
+class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> on
+how to publish and host your site using CloudFlare’s domain registration
+service and their free service tier. The cost to host comes down to just
+the cost of a domain.</p>
+<p>In my opinion, this flow is better than the popular alternative of
+using Github’s Pages<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> as you are able to access more
+detailed site analytics and can utilize Cloudflare’s security layer for
+no additional costs outside of the domain registration price.</p>
+<h2 id="personalization">Personalization</h2>
+<p>After following the instructions and implementing the template, the
+1.0 version of my site looked like this:</p>
+<p><img src="./screen-shot.png" width="500" /></p>
+<p>This was a good start. But as a developer who specializes in user
+experience implementation, I knew we could do better.</p>
+<h2 id="design-with-vibes">Design (with vibes)</h2>
+<p>To make a first-pass design I used the recently updated<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <a
+href="https://stitch.withgoogle.com/">Google Stitch</a> to generate a
+mock up.</p>
+<p>Google Stitch works as a website or mobile app generative UI service.
+However unlike services like Nano Banana or Midjourney, the generated
+mockups are content-editable and can even be used to create basic
+wireframes and UI flows similar to Figma. When you’re ready, you can
+export a HTML file and a <code>DESIGN.md</code> file that can be used to
+view this design in the browser and integrate in our project.</p>
+<p>The <code>DESIGN.md</code> file allows our AI coding agents to have a
+design language and reference to use when iterating on this project.</p>
+<p>However, it’s not all sunshine and vibe-generated rainbows. As of the
+posting of this article, I found several issues trying to generate
+designs using this tool, particularly around iterating on each design
+via prompts. The tool would frequently forget the design language we had
+agreed upon, such as fonts and color scheme and return designs that are
+(I am assuming) are more adjusting for its model’s training data and not
+iterating on the previous design.</p>
+<p>I ended up converging on the following design from Stitch. This would
+be a template I could iterate on in the next step:</p>
+<p><img src="./screen.png" width="500" /></p>
+<p>Export your design and get ready to start actually integrating.</p>
+<h2 id="development-from-slop-to-dorodango5">Development (from slop to
+dorodango<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>)</h2>
+<p>With your HTML and <code>DESIGN.md</code> files in hand, we can now
+begin integrating our website vision into tangible project.</p>
+<p>The following steps are how I went about integrating this. However
+feel free to do you. I’ll be the first to say my frontend web
+engineering experience is limited but I do have a functional
+understanding of HTML and CSS which I used to throw my coding agent
+along by implementing changes to the website layout, section by
+section.</p>
+<p>We need to have our Stitch HTML template overwrite our projects
+<code>./public/&lt;website-domain&gt;/index.template.html</code>
+file.</p>
+<p>I instructed my coding agent in <code>Plan</code> mode to do the
+following:</p>
+<pre><code>substitute my template.html file for the ./public/&lt;website-domain&gt;/index.template.html file. Keep the ability to publish articles under a section called &quot;Writing&quot;</code></pre>
+<p>After this port was complete, I had the coding agent review the new
+<code>index.template.html</code> file against the <code>DESIGN.md</code>
+file for consistency.</p>
+<p>To complete the site and content, I went through each section and
+made updates to the <code>index.template.html</code> and the
+<code>style.css</code> files to match my targeted layout.</p>
+<h2 id="sources-and-footnotes">Sources and Footnotes</h2>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://bennherrera.me/">Staff Engineer</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://github.com/benn-herrera/personal-site-for-cost-of-domain/blob/main/ZERO_TO_LAUNCH.md">personal-site-for-cost-of-domain/ZERO_TO_LAUNCH.md
+at main · benn-herrera/personal-site-for-cost-of-domain</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://docs.github.com/en/pages">GitHub Pages
+documentation</a><a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a
+href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/">Introducing
+“vibe design” with Stitch</a><a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a
+href="https://en.wikipedia.org/wiki/Dorodango">Dorodango</a><a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div>
+    </body>
+</html>

@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>alexlerikos.me</title>
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="/style.css" />
         <link
             rel="alternate"
@@ -15,6 +15,7 @@
         />
     </head>
     <body class="page-index">
+        <!-- top nav kept in DOM for pandoc (hidden by CSS on index) -->
         <nav>
             <div class="name-rss">
                 <a class="name-mark" href="/">alexlerikos.me</a>
@@ -24,8 +25,359 @@
             </div>
         </nav>
 
-        <section>
-            $body$
-        </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <img
+                    alt="Alex Lerikos"
+                    class="sidebar-photo"
+                    src="/profile.webp"
+                />
+                <div class="sidebar-name">Alex Lerikos</div>
+                <div class="sidebar-title">Senior Software Engineer</div>
+                <div class="sidebar-social">
+                    <a
+                        href="https://github.com/alexlerikos"
+                        class="social-link social-github"
+                        aria-label="GitHub"
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                        class="social-link social-linkedin"
+                        aria-label="LinkedIn"
+                    ></a>
+                    <a
+                        href="mailto:alex@alexlerikos.me"
+                        class="social-link social-email"
+                        aria-label="Email"
+                    ></a>
+                    <a
+                        href="https://www.strava.com/athletes/580787"
+                        class="social-link social-strava"
+                        aria-label="Strava"
+                    ></a>
+                    <a
+                        href="/feed/"
+                        class="social-link social-rss"
+                        aria-label="RSS Feed"
+                    ></a>
+                </div>
+            </div>
+            <button
+                class="sidebar-menu-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="sidebar-nav"
+            >
+                <span class="sidebar-menu-icon"></span>
+            </button>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <a href="#overview">
+                    <span class="nav-icon nav-icon-person"></span>
+                    Overview
+                </a>
+                <a href="#experience">
+                    <span class="nav-icon nav-icon-work"></span>
+                    Experience
+                </a>
+                <a href="#projects">
+                    <span class="nav-icon nav-icon-terminal"></span>
+                    Projects
+                </a>
+                <a href="#articles">
+                    <span class="nav-icon nav-icon-article"></span>
+                    Writing
+                </a>
+                <a href="#skills">
+                    <span class="nav-icon nav-icon-layers"></span>
+                    Technical Skills
+                </a>
+                <a href="#contact">
+                    <span class="nav-icon nav-icon-mail"></span>
+                    Contact
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content -->
+        <main class="index-main">
+            <!-- Overview -->
+            <section class="index-section" id="overview">
+                <div class="editorial-grid">
+                    <div>
+                        <h2 class="hero-headline">
+                            Hi, I'm Alex. Thanks for stopping by 🤙
+                        </h2>
+                        <p class="hero-body">
+                            I'm a senior software engineer with 10 years of
+                            professional experience specializing in iOS
+                            development, native mobile development and full
+                            mobile-stack integrations.
+                        </p>
+                        <p class="hero-body">
+                            This site is a hub for my experience, projects and
+                            thoughts. The writing section contains self-authored, blog-style
+                            articles relating to technology, engineering or
+                            whatever else I feel like posting.
+                        </p>
+                        <div class="hero-tags">
+                            <span class="hero-tag">iOS Development</span>
+                            <span class="hero-tag"
+                                >Native Mobile Development</span
+                            >
+                            <span class="hero-tag">Android Development</span>
+                            <span class="hero-tag"
+                                >Video Streaming Integration</span
+                            >
+                            <span class="hero-tag">Full-Stack</span>
+                        </div>
+                        <div class="hero-links">
+                            <a href="https://github.com/alexlerikos">
+                                <span
+                                    class="link-icon social-link social-github"
+                                ></span>
+                                GitHub
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                            >
+                                <span
+                                    class="link-icon social-link social-linkedin"
+                                ></span>
+                                LinkedIn
+                            </a>
+                            <a href="mailto:alex@alexlerikos.me">
+                                <span
+                                    class="link-icon social-link social-email"
+                                ></span>
+                                Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="index-section" id="experience">
+                <h3 class="section-heading">Experience</h3>
+                <div>
+                    <div class="exp-item">
+                        <div class="exp-date">2022 &mdash; 2026</div>
+                        <div>
+                            <div class="exp-role">Senior Software Engineer</div>
+                            <div class="exp-company">
+                                Geomagical Labs - An IKEA subsidiary
+                            </div>
+                            <p class="exp-desc">
+                                I developed core features and components of the
+                                Kreativ™ design experience for iOS.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">iOS</span>
+                                <span class="exp-tag">AR Kit</span>
+                                <span class="exp-tag">3D Integration</span>
+                                <span class="exp-tag">E-Commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-date">2019 &mdash; 2022</div>
+                        <div>
+                            <div class="exp-role">Senior Software Engineer</div>
+                            <div class="exp-company">Apple Inc.</div>
+                            <p class="exp-desc">
+                                I worked on the HomeKit team, developing the iOS
+                                Home app.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">IoT</span>
+                                <span class="exp-tag">E-commerce</span>
+                                <span class="exp-tag"
+                                    >Recommendation Systems</span
+                                >
+                                <span class="exp-tag"
+                                    >Shortcuts and Automations</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-date">2017 &mdash; 2019</div>
+                        <div>
+                            <div class="exp-role">Lead Mobile Engineer</div>
+                            <div class="exp-company">Vantage Robotics Inc.</div>
+                            <p class="exp-desc">
+                                I built the iOS and Android applications for the
+                                Vantage Robotics quadcopter platform.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Embedded Systems</span>
+                                <span class="exp-tag">Video Streaming</span>
+                                <span class="exp-tag">Android</span>
+                                <span class="exp-tag">iOS</span>
+                                <span class="exp-tag">MapKit</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-date">2016 &mdash; 2017</div>
+                        <div>
+                            <div class="exp-role">Software Engineer</div>
+                            <div class="exp-company">
+                                Butterfleye Inc. (Aquired by Ooma Inc.)
+                            </div>
+                            <p class="exp-desc">
+                                I developed the iOS app and Backend systems for
+                                the Butterfleye security camera.
+                            </p>
+                            <div class="exp-tags">
+                                <span class="exp-tag">Video Streaming</span>
+                                <span class="exp-tag">iOS</span>
+                                <span class="exp-tag">AWS</span>
+                                <span class="exp-tag">Java</span>
+                                <span class="exp-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="index-section" id="projects">
+                <h3 class="section-heading">Projects</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <span class="project-card-icon icon-hub"></span>
+                            <a class="project-card-link" href="https://github.com/alexlerikos/Projector"> &nearr; </a>
+                        </div>
+                        <div class="project-card-title">
+                            Projector
+                        </div>
+                        <p class="project-card-desc">
+                            An AVFoundation based video player that allows the color scheme and UI to be easily changed to your product's branding specifications.
+                            Featured in Swift Package Index.
+                        </p>
+                        <div class="project-card-tags">
+                            <span>#AVFoundation</span>
+                            <span>#Swift Package Manager</span>
+                            <span>#SwiftUI</span>
+                            <span>#UIKit</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Articles (dynamic — pandoc injects here) -->
+            <section class="index-section" id="articles">
+                <h3 class="section-heading">Writing</h3>
+                <p class="writing-desc">
+                    Though we live in the age of AI, all writings here
+                    are from my own grey matter. I believe opinions
+                    are not genine if generatated though automated
+                    intelligence.
+                </p>
+                $body$
+            </section>
+
+            <!-- Skills -->
+            <section class="index-section" id="skills">
+                <h3 class="section-heading">Technical Skills</h3>
+                    <div class="tech-stack-grid">
+                        <div>
+                            <p class="tech-stack-category">iOS</p>
+                            <p class="tech-stack-items">
+                                SwiftUI
+                            </p>
+                            <p class="tech-stack-items">
+                                UIKit
+                            </p>
+                            <p class="tech-stack-items">
+                                Swift
+                            </p>
+                            <p class="tech-stack-items">
+                                Objective-C
+                            </p>
+                        </div>
+                        <div>
+                            <p class="tech-stack-category">Android</p>
+                            <p class="tech-stack-items">
+                                Kotlin
+                            </p>
+                            <p class="tech-stack-items">
+                                Java
+                            </p>
+                            <p class="tech-stack-items">
+                                Jetpack Compose
+                            </p>
+                            <p class="tech-stack-items">
+                                XML
+                            </p>
+                        </div>
+                        <div>
+                            <p class="tech-stack-category">Backend</p>
+                            <p class="tech-stack-items">
+                                Python
+                            </p>
+                            <p class="tech-stack-items">
+                                FastAPI
+                            </p>
+                            <p class="tech-stack-items">
+                                Docker
+                            </p>
+                            <p class="tech-stack-items">
+                                PostgreSQL
+                            </p>
+                        </div>
+                        <div>
+                            <p class="tech-stack-category">AI Agents</p>
+                            <p class="tech-stack-items">
+                                OpenCode
+                            </p>
+                            <p class="tech-stack-items">
+                                Claude
+                            </p>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="index-footer" id="contact">
+                <p class="index-footer-copy">&copy; 2026 Alex Lerikos.</p>
+                <div class="index-footer-links">
+                    <a href="https://github.com/alexlerikos">GitHub</a>
+                    <a href="https://www.linkedin.com/in/alex-lerikos-b4122a3b"
+                        >LinkedIn</a
+                    >
+                    <a href="mailto:alex@alexlerikos.me">Email</a>
+                    <a href="https://www.strava.com/athletes/580787">Strava</a>
+                    <a href="/feed/">RSS</a>
+                </div>
+            </footer>
+        </main>
+        <script>
+            (function () {
+                var btn = document.querySelector(".sidebar-menu-toggle");
+                var aside = document.querySelector(".sidebar");
+                if (!btn) return;
+                btn.addEventListener("click", function () {
+                    var open = aside.classList.toggle("nav-open");
+                    btn.setAttribute("aria-expanded", open ? "true" : "false");
+                });
+                document.addEventListener("click", function (e) {
+                    if (!aside.contains(e.target)) {
+                        aside.classList.remove("nav-open");
+                        btn.setAttribute("aria-expanded", "false");
+                    }
+                });
+                aside.querySelectorAll(".sidebar-nav a").forEach(function (a) {
+                    a.addEventListener("click", function () {
+                        aside.classList.remove("nav-open");
+                        btn.setAttribute("aria-expanded", "false");
+                    });
+                });
+            })();
+        </script>
     </body>
 </html>
