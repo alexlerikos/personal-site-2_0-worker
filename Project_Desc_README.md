@@ -64,3 +64,9 @@ So the division is:
 - **`index.html`** = the generated output — never hand-edit this file
 
 Edits happen in `index.template.html` and `style.css`, then `make -C public/alexlerikos.me public` regenerates the output.
+
+
+## Open Source Credits
+
+### Template repo credit
+[personal-site-for-cost-of-domain by benn-herrera](https://github.com/benn-herrera/personal-site-for-cost-of-domain)
