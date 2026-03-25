@@ -63,4 +63,4 @@ So the division is:
 - **`index.md`** = only the dynamic article list (auto-updated by `site-tool gen-toc` whenever articles are added/removed)
 - **`index.html`** = the generated output — never hand-edit this file
 
-The static sections currently contain `AI GEN PLACEHOLDER:` prefixed content, indicating they need to be replaced with real content by the author. Those edits happen in `index.template.html`, then `make -B index.html` regenerates the output.
+Edits happen in `index.template.html` and `style.css`, then `make -C public/alexlerikos.me public` regenerates the output.
