@@ -311,8 +311,14 @@ body.page-index .post-list {
     display: grid;
     grid-template-columns: 9ch 1fr;
     gap: 0 20px;
-    padding: 14px 0;
+    padding: 14px 8px;
     align-items: baseline;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.post-item:hover {
+    background: var(--surface);
 }
 
 .post-item > p {
