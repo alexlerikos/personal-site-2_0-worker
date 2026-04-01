@@ -988,12 +988,18 @@ body.page-index .index-section section {
 
 .project-card-tags {
     display: flex;
-    gap: 14px;
+    flex-wrap: wrap;
+    gap: 6px;
     font-family: var(--font);
+}
+
+.project-card-tags span {
     font-size: 0.6rem;
     font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.1em;
+    color: var(--text-meta);
+    background: var(--surface);
+    padding: 3px 10px;
+    border-radius: 3px;
 }
 
 /* ── Skill bars ──────────────────────────────────────────── */
