@@ -6,8 +6,8 @@ date: 2026-03-24
 listed: true
 tags:
   - AI
-  - web development
-  - markdown
+  - Web Development
+  - Markdown
 filters:
   - footnotes
 ---
